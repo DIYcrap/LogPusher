@@ -8,11 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-// TODO
-// 03 Test if it is necessary to go to books
-// 04 Change name on project
-// 05 Share project on github
-// 06 File dialog selects *.adil or *.*
+// LogPusher by LB0MG 
+// 2015
 
 namespace LogPusher
 {

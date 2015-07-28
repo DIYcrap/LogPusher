@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// LogPusher by LB0MG 
+// 2015
+
 namespace LogPusher
 {
     public partial class Form1 : Form
