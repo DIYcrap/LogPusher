@@ -192,11 +192,9 @@ namespace LogPusher
                 Stream stream2 = wresp.GetResponseStream();
                 StreamReader reader2 = new StreamReader(stream2);
                 return reader2.ReadToEnd();
-                //log.Debug(string.Format("File uploaded, server response is: {0}", reader2.ReadToEnd()));
             }
             catch (Exception ex)
             {
-                //log.Error("Error uploading file", ex);
                 if (wresp != null)
                 {
                     wresp.Close();
