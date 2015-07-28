@@ -57,25 +57,38 @@ namespace LogPusher
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            addEventText("Starting...");
+            string version = System.Reflection.Assembly.GetExecutingAssembly()
+                                           .GetName()
+                                           .Version
+                                           .ToString();
+
+            addEventText("Starting LogPusher " + version);
             addEventText("Loading settings...");
-            txtBook.Text = Properties.Settings.Default["Book"].ToString();
-            txtBookId.Text = Properties.Settings.Default["BookId"].ToString();
-            txtUsername.Text = Properties.Settings.Default["UserName"].ToString();
-            txtPassword.Text = Properties.Settings.Default["Password"].ToString();
-            txtAdifPath.Text = Properties.Settings.Default["AdilFile"].ToString();
-
-            if (Properties.Settings.Default["Autoupload"].Equals(true))
+            try
             {
-                rdoAuto.Checked = true;
-                rdoManual.Checked = false;
-            }
-            else
-            {
-                rdoAuto.Checked = false;
-                rdoManual.Checked = true;
-            }
+                txtBook.Text = Properties.Settings.Default["Book"].ToString();
+                txtBookId.Text = Properties.Settings.Default["BookId"].ToString();
+                txtUsername.Text = Properties.Settings.Default["UserName"].ToString();
+                txtPassword.Text = Properties.Settings.Default["Password"].ToString();
+                txtAdifPath.Text = Properties.Settings.Default["AdilFile"].ToString();
 
+                if (Properties.Settings.Default["Autoupload"].Equals(true))
+                {
+                    rdoAuto.Checked = true;
+                    rdoManual.Checked = false;
+                }
+                else
+                {
+                    rdoAuto.Checked = false;
+                    rdoManual.Checked = true;
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("You need to enter settings");
+            }
 
             UpdateUploader();
 
