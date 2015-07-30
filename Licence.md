@@ -1,11 +1,6 @@
-# LogPusher
-A Visual Studio C# Program for automatic uploading of adil files to QRZ.com.
-The program is created by LB0MG at DIYcrap
+The MIT License (MIT)
 
-The MIT License(MIT)
-
-Copyright(c) 2015
-By LB0MG
+Copyright (c) 2015 DIYcrap
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
