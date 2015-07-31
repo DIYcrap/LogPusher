@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// TODO:
+// 1: Keep Settings even when the version changes (Now the version number is fixed at 1.1.1.1)
+// 2:
+
 /*
 The MIT License(MIT)
 
@@ -65,7 +69,8 @@ namespace LogPusher
         static public void uploadLogfile()
         {
             // Must be at least 30 seconds between each upload
-            if((DateTime.Now - last).TotalSeconds > 30)
+            // To avoid multiple uploads to QRZ if the file event handler is called twice.
+            if((DateTime.Now - last).TotalSeconds > 30 && Properties.Settings.Default["Autoupload"].Equals(true))
             {
                 last = DateTime.Now;
                 Form1.Instance.addEventText("File changed, uploading file...");
