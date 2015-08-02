@@ -70,7 +70,7 @@ namespace LogPusher
         {
             // Must be at least 30 seconds between each upload
             // To avoid multiple uploads to QRZ if the file event handler is called twice.
-            if((DateTime.Now - last).TotalSeconds > 30 && Properties.Settings.Default["Autoupload"].Equals(true))
+            if((DateTime.Now - last).TotalSeconds > 5)
             {
                 last = DateTime.Now;
                 Form1.Instance.addEventText("File changed, uploading file...");
@@ -189,7 +189,7 @@ namespace LogPusher
         {
             // Specify what is done when a file is changed, created, or deleted.
            
-            uploadLogfile();
+            if(Properties.Settings.Default["Autoupload"].Equals(true)) uploadLogfile();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

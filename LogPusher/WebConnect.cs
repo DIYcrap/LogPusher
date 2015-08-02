@@ -117,12 +117,14 @@ namespace LogPusher
                 { 
                     { "username", username },
                     { "password", password },
+                    { "flush","1" },
                 };
-                // Authenticate (must be https on this one)
+                
                 byte[] retval;
+                
                 try
                 {
-                    retval = client.UploadValues("https://www.qrz.com/login", values);
+                    retval = client.UploadValues("http://www.qrz.com/login",values);
                 }
                 catch (Exception)
                 {
@@ -131,7 +133,8 @@ namespace LogPusher
                 }
                 Form1.Instance.addEventText("Connected to qrz.com...");
                 string retstring = Encoding.UTF8.GetString(retval);
-
+                
+                
                 /*
                 var direct = new NameValueCollection
                 {
